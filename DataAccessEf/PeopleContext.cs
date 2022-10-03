@@ -1,10 +1,12 @@
 ﻿
+using DataAccessEf.Configrations;
 using Domain;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication1.Models
 {
-    public class PeopleContext : DbContext
+    public class PeopleContext : IdentityDbContext<User>
     {
         /* protected override void OnModelCreating(ModelBuilder modelBuilder)
          {
@@ -13,10 +15,10 @@ namespace WebApplication1.Models
                  .IsUnique(true);
          }*/
         public PeopleContext(DbContextOptions options) : base(options) { }
-        public DbSet<User> User
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            get;
-            set;
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
         }
 
         public DbSet<Certification> Certification

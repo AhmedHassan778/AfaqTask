@@ -2,6 +2,7 @@
 using Domain;
 using Domain.Interfaces;
 using Domain.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,8 @@ using System.Linq;
 
 namespace AfaqTask.Controllers
 {
+    [Authorize]
+
     [ApiController]
     [Route("[controller]")]
     public class HomeController : Controller
@@ -31,7 +34,7 @@ namespace AfaqTask.Controllers
         }
 
 
-        [HttpPost("AddUser")]
+        /*[HttpPost("AddUser")]
         public ActionResult AddUser(UserDTO userDto)
         {
 
@@ -48,7 +51,7 @@ namespace AfaqTask.Controllers
 
             }
             return BadRequest("failed to add user");
-        }
+        }*/
 
     }
 

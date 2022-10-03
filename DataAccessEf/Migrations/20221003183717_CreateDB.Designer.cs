@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication1.Models;
 
 namespace DataAccessEf.Migrations
 {
     [DbContext(typeof(PeopleContext))]
-    partial class PeopleContextModelSnapshot : ModelSnapshot
+    [Migration("20221003183717_CreateDB")]
+    partial class CreateDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -142,22 +144,6 @@ namespace DataAccessEf.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "d9dca321-f39c-4d8b-bd39-2108409993fb",
-                            ConcurrencyStamp = "3a2e9942-8c4e-4c08-ad20-7c0a631ed60a",
-                            Name = "User",
-                            NormalizedName = "USER"
-                        },
-                        new
-                        {
-                            Id = "0ef5cd45-c900-4157-bd21-437ac4b66bac",
-                            ConcurrencyStamp = "2f23430b-fb60-44ac-8852-5212d1bd3016",
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -1,16 +1,15 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 
 namespace Domain
 {
-    public class User
+    public class User : IdentityUser
     {
-        public int Id { get; set; }
         public string Name { get; set; }
 
         /* EF Relations */
         public ICollection<Certification> Certifications { get; set; }
-
 
     }
 }

@@ -13,9 +13,9 @@ namespace DataAccessEF.Type_Repository
     class UserRepository : GenericRepository<User>, IUserRepository
     {
         public UserRepository(PeopleContext context) : base(context) { }
-        public new IEnumerable<User> Find(Expression<Func<User, bool>> expression)
+        public new IQueryable<User> Find(Expression<Func<User, bool>> expression)
         {
-            return context.User.Include(u => u.Certifications).Where(expression);
+            return context.Users.Include(u => u.Certifications).Where(expression);
         }
 
 

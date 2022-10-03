@@ -17,11 +17,7 @@ namespace Domain.Interfaces
 
         bool Save();
 
-        /*int hello()
-        {
 
-            return 9;
-        }*/
 
     }
 }
